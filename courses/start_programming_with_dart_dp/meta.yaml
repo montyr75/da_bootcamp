@@ -1,0 +1,9 @@
+name: Start Programming with Dart
+type: dart # This should be either "dart" or "flutter".
+steps:
+  - name: Hello, World!
+    directory: hello_world
+    has_solution: false
+  - name: Variables
+    directory: variables
+    has_solution: false
