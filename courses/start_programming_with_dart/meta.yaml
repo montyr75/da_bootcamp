@@ -7,3 +7,6 @@ steps:
   - name: Variables
     directory: variables
     has_solution: false
+  - name: Types
+    directory: types
+    has_solution: false
