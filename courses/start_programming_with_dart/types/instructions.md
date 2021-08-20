@@ -44,10 +44,14 @@ void main() {
   print(x);
   x = "Dart is great.";
   print(x);
+  x = null;
+  print(x);
 }
 ```
 
-Most often when we create variables, we have a particular type of value in mind for it, which means assigning values of different types to that variable is likely unintentional, and may produce unintended results. For instance, if you create a variable intended to store the cost of an item (a number), you probably don't want to later store someone's name in there, and if you accidentally did so, it may produce an error. Later, you'll see how Dart's code analyzer can help us avoid this kind of problem.
+Most often when we create variables, we have a particular type of value in mind for it, which means assigning values of different types to that variable is likely unintentional, and may produce unintended results. For instance, if you create a variable intended to store the cost of an item (a number), you probably don't want to later store someone's name in there, and if you accidentally did so, it may produce an error. Note that you can always reset a dynamic variable to `null` by assigning it the special keyword `null`, as demonstrated in the example code.
+
+Later, you'll see how Dart's code analyzer can help us avoid this kind of problem.
 
 #### You Can't Do That
 Modify the code to look like this:
