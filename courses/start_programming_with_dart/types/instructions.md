@@ -66,7 +66,7 @@ void main() {
 
 This code causes DartPad to display an error, saying that you're mixing types. Because you've initialized `x` with an integer number value at the same time you declared it, Dart infers that `x` is supposed to hold integers from that point on. Now `x` is of type `int` instead of `dynamic`, even though it was declared with the generic keyword `var`.
 
-You can override Dart's inference by specifying that you want your variable to be dynamic. Try changing the declaration to look like this and see the error disappear:
+You can override Dart's inference by specifying that you want your variable to be dynamic. Try changing the declaration to use `dynamic` instead of `var` and see the error disappear:
 
 ```dart
 dynamic x = 5;
@@ -152,7 +152,7 @@ There is no limit to the number of types a program may have, but there are a few
 </table>
 
 #### `var` Recap
-Remember, if you declare a variable with `var`, but don't assign a value in the same statement, Dart will assume it should be `dynamic` and assign it a value of `null` to start out. If you do initialize the value as you declare the variable, Dart will infer the type based on that value's type. So the following two lines are equivalent:
+Remember, the `var` keyword works differently based on context. If you declare a variable with `var`, but don't assign a value in the same statement, Dart will assume it should be `dynamic` and assign it a value of `null` to start out. If you do initialize the value as you declare the variable, Dart will infer the type based on that value's type, and that variable will be treated as though you had used an explicit type. So the following two lines are equivalent:
 
 ```dart
 var z;
@@ -168,5 +168,56 @@ var y = 99;
 int y = 99;
 ```
 
+#### More About `null`
+
+In Dart, most variables cannot be assigned the special value of `null`. This is to help you avoid errors in your code. Trying to perform operations on `null`, naturally, doesn't work well. You can't add `null` to `5`, for instance, because `null` is not `0`—it's nothing at all. For this reason, Dart helps you guarantee that your variables will never contain `null`, but instead will always have a "valid" value for that variable's type.
+
+A variable typed as `dynamic` (whether explicitly or through inference) can have *any* value, including `null`, but without special treatment, no other typed variables are allowed to contain `null`:
+
+```dart
+void main() {
+  var myVar;          // automatically initialized to null and inferred to be dynamic
+  dynamic myDyn;      // automatically initialized to null
+  int myInt;          // warning: integer variables must be assigned before use
+
+  print(myVar);       // null
+  print(myDyn);       // null
+  print(myInt);       // error: myInt has no value (not even null)
+}
+```
+
+You must give a typed variable a value before trying to use it:
+
+```dart
+void main() {
+  int myInt1 = 0;
+  print(myInt1);       // 0
+    
+  int myInt2;
+  myInt2 = 0;
+  print(myInt2);       // 0
+    
+  myInt1 = null;       // error: an int variable cannot be null
+}
+```
+
+##### Making Typed Variables Nullable
+
+If you really want a typed variable to be able to store a `null` value, you must declare this explicitly using the `?` character with the type:
+
+```dart
+void main() {
+  int? myInt;          // automatically initialized to null
+  print(myInt);        // null
+  myInt = 4;
+  print(myInt);        // 4
+  myInt = null;
+  print(myInt);       // null
+}
+```
+
+It's best to think of `int` and `int?` as similar but sometimes incompatible types. We'll get into this much more in later lessons.
+
 #### What's Next?
-You haven't yet seen examples of using types like `double`, `num`, `bool`, `List`, or `Map`, but that's coming up soon.
+
+You haven't yet seen examples of using types like `double`, `num`, `bool`, `List`, or `Map` (or their nullable versions), but that's all coming up soon.
