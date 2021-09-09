@@ -13,3 +13,9 @@ steps:
   - name: Operators
     directory: operators
     has_solution: false
+  - name: Compound Assignment Operators
+    directory: compound_assignment_operators
+    has_solution: false
+  - name: Strings
+    directory: strings
+    has_solution: false 
