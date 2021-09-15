@@ -19,3 +19,6 @@ steps:
   - name: Strings
     directory: strings
     has_solution: false 
+  - name: Converting Temperatures
+    directory: temperature
+    has_solution: false 
