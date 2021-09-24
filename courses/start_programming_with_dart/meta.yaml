@@ -21,4 +21,10 @@ steps:
     has_solution: false 
   - name: Converting Temperatures
     directory: temperature
-    has_solution: false 
+    has_solution: false
+  - name: Making Decisions
+    directory: making_decisions
+    has_solution: false
+  - name: Booleans
+    directory: booleans
+    has_solution: false

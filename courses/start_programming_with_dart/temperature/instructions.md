@@ -24,7 +24,7 @@ void main() {
   double convertedC = (f - 32) / 1.8;
   double convertedF = 1.8 * c + 32;
   
-  // ouput
+  // output
   print("$f degrees Fahrenheit is $convertedC degrees Celsius.");
   print("$c degrees Celsius is $convertedF degrees Fahrenheit.");
 }
