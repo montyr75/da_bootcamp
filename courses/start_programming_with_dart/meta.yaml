@@ -28,3 +28,15 @@ steps:
   - name: Booleans
     directory: booleans
     has_solution: false
+  - name: Boolean Expressions
+    directory: boolean_expressions
+    has_solution: false
+  - name: Modulo Operator
+    directory: modulo_operator
+    has_solution: false
+  - name: Switch
+    directory: switch
+    has_solution: false
+  - name: Switching Grades
+    directory: switching_grades
+    has_solution: false
