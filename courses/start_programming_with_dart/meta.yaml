@@ -40,3 +40,12 @@ steps:
   - name: Switching Grades
     directory: switching_grades
     has_solution: false
+  - name: While Loops
+    directory: while_loops
+    has_solution: false
+  - name: Do-While Loops
+    directory: do_while_loops
+    has_solution: false
+  - name: For Loops
+    directory: for_loops
+    has_solution: false
