@@ -49,3 +49,9 @@ steps:
   - name: For Loops
     directory: for_loops
     has_solution: false
+  - name: Functions
+    directory: functions
+    has_solution: false
+  - name: Function Parameters
+    directory: function_parameters
+    has_solution: false
