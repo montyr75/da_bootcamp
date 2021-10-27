@@ -23,10 +23,10 @@ Dart expects the function to get a String, an integer, and a boolean value, in t
 To make these kinds of parameters optional, you use square brackets:
 
 ```dart
-void myFunction([String param1, int param2, bool param3])
+void myFunction([String? param1, int? param2, bool? param3])
 ```
 
-All of the parameters between the brackets are considered optional, which means these would all be valid ways to call this function:
+All of the parameters between the brackets are considered optional. Note that we need to make the parameter types nullable with a `?` for this to work properly. Now, these would all be valid ways to call this function:
 
 ```dart
 myFunction("Bob", 54, true);
@@ -35,13 +35,13 @@ myFunction("Bob");
 myFunction();
 ```
 
-Any arguments not provided will be `null`, like any other uninitialized variable. Since these are positional parameters, the order still matters. You cannot call the function and pass only the integer, for instance. Though if you had to, you could preserve the order by passing `null` values like this:
+Any arguments not provided will be `null`, like any other uninitialized, nullable variable. Since these are positional parameters, the order still matters. You cannot call the function and pass only the integer, for instance. Though if you had to, you could preserve the order by passing `null` values like this:
 
 ```dart
 myFunction(null, null, true);
 ```
 
-Typically, this kind of thing should be avoided, as it makes for a very cryptic function call. If you regularly need to call a function in this manner, consider using named parameters instead.
+Typically, this kind of thing should be avoided, as it makes for a cryptic function call. If you regularly need to call a function in this manner, consider using named parameters instead (discussed below).
 
 ##### Better Defaults
 
