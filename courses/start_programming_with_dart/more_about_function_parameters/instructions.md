@@ -87,10 +87,10 @@ In this version of the function, the caller must provide arguments for `name` an
 Named optional parameters allow arguments to be passed in any order. They are designated by curly braces instead of square brackets:
 
 ```dart
-void setFlags({bool bold, bool hidden})
+void setFlags({bool? bold, bool? hidden})
 ```
 
-The names of named parameters must be included in the function call. The `setFlags()` function can be called in these ways:
+The names of named parameters must be included in the function call, but they arguments may be passed in any order since the name will serve as a differentiator. The `setFlags()` function can be called in these ways:
 
 ```dart
 setFlags(bold: true, hidden: true);
@@ -100,7 +100,7 @@ setFlags(hidden: true);
 setFlags();
 ```
 
-As with the positional variety, missing arguments are simply `null` unless you have other defaults in place:
+As with the positional variety, missing arguments are simply `null` unless you have other defaults in place. If no defaults are provided, the parameter types need to be nullable. Here is an example with defaults:
 
 ```dart
 void setFlags({bool bold = false, bool hidden = false})
@@ -108,7 +108,13 @@ void setFlags({bool bold = false, bool hidden = false})
 
 With that signature, calling `setFlags()` without arguments will set both flags to `false`.
 
-> **Note:** In Dart, named function parameters are always optional. You cannot create a named, required parameter.
+You can specify that named parameters be required using the `required` keyword:
+
+```dart
+void setFlags({required bool bold, required bool hidden})
+```
+
+This way, you can keep your parameter types non-nullable and the caller will be required to pass a valid value. You may make any number of named parameters required.
 
 ##### Example
 
@@ -130,7 +136,7 @@ void setFlags({bool bold = false, bool hidden = false}) {
 
 ##### Mixing Optional and Required Parameters (Revisited)
 
-Optional parameters, even named ones, must come at the end of the list if there are also required parameters in a function's signature:
+Optional parameters, even named ones, must come at the end of the list if there are also regular, required parameters in a function's signature:
 
 ```dart
 void myFunction(String name, int age, {bool retired = false})
@@ -142,7 +148,7 @@ Calling this function with all three arguments would look like this:
 myFunction("Bob", 54, retired: true);
 ```
 
-Boolean parameters are great candidates for being named, as it makes the function call much clearer for anyone reading the code. Just remember that if there isn't a default value in the function's declaration, it will default to `null`, which is not a valid boolean value.
+Boolean parameters are great candidates for being named, as it makes the function call much clearer for anyone reading the code. Just remember that if there isn't a default value in the function's declaration and the parameter's type is nullable, it will default to `null`, which is not a valid boolean value.
 
 #### Mixing Positional and Named Optional Parameters
 
