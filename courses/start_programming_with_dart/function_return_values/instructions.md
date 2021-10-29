@@ -1,4 +1,4 @@
-At this point, you have functions that can take input, but your journey through the magical world of Dart functions won't be complete until you can produce output with them as well. When you place the keyword `void` at the beginning of a function definition, you're saying the function will not produce any useful output, it will not *return* a value of consequence. Technically, even `void` functions still return a `null` value, but that typically won't matter to you as a coder. You may not be surprised to learn that it's possible to declare a type other than `void` as your function's *return type*. Compare these two versions of a `sum()` function:
+At this point, you have functions that can take input, but your journey through the magical world of Dart functions won't be complete until you can produce output with them as well. When you place the keyword `void` at the beginning of a function definition, you're saying the function will not produce any useful output, it will not *return* a value of consequence. You may not be surprised to learn that it's possible to declare a type other than `void` as your function's *return type*. Compare these two versions of a `sum()` function:
 
 ```dart
 void sum(int a, int b) {
@@ -81,7 +81,7 @@ void main() {
   print("My grade: ${getGrade(81.5)}");
 }
 
-String getGrade(num score) {
+String getGrade(double score) {
   String grade;
   
   if (score >= 90) {
