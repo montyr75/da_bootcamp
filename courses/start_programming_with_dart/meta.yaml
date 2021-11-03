@@ -58,3 +58,9 @@ steps:
   - name: More About Function Parameters
     directory: more_about_function_parameters
     has_solution: false
+  - name: Function Return Values
+    directory: function_return_values
+    has_solution: false
+  - name: Variable Scope
+    directory: variable_scope
+    has_solution: false
