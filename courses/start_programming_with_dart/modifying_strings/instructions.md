@@ -53,8 +53,7 @@ void main() {
 
 bool compareStrings(String a, String b, {bool caseSensitive = false}) {
   if (!caseSensitive) {
-    a = a.toLowerCase();
-    b = b.toLowerCase();
+    return a.toLowerCase() == b.toLowerCase();
   }
 
   return a == b;
