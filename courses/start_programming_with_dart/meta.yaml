@@ -64,3 +64,6 @@ steps:
   - name: Variable Scope
     directory: variable_scope
     has_solution: false
+  - name: Examining Strings
+    directory: examining_stringsexamining_strings
+    has_solution: false
