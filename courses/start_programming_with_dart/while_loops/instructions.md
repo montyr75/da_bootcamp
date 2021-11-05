@@ -1,180 +1,103 @@
-A bunch of lessons ago, you were introduced to the `String` data type. You created, printed, concatenated, and interpolated them. What if I told you that Dart's String type contains properties and functions that help you do more advanced string operations? This shouldn't be a complete surprise, because you've already seen at least one of these hidden treasures: The `length` property. It's accessed using the dot operator (`.`), as in this example:
+It's important that you really internalize the concept of boolean expressions, because in the world of programming, those things come up again and again. Many of Dart's control structures use them to decide what to do. This includes loops, which we'll start discussing in this lesson.
+
+#### What's a Loop?
+When writing computer programs, situations often come up where you want to do the same thing many, many times, or you need to perform the same basic action on tens, hundreds, thousands, or even millions of pieces of data. Obviously, it would be impractical to write all of that code by hand. In fact, what would something like that look like?
 
 ```dart
 void main() {
-  String name = "Russell";
-  print("This name contains ${name.length} letters.");
+  print(1);
+  print(2);
+  print(3);
+  print(4);
+  print(5);
+  print(6);
+  print(7);
+  print(8);
+  print(9);
+  print(10);
 }
 ```
 
-#### Is It Empty?
-
-Strings can tell you other interesting things about themselves, such as whether they're empty or not:
+That's how silly your code might look if you needed to do the same thing a mere 10 times, with only the slightest variation each time. There's got to be a better way, perhaps using variables, boolean expressions, and what else...? Loops!
 
 ```dart
 void main() {
-  String firstName = "Russell";
-  String lastName = "";
+  int i = 1;
   
-  print("firstName\n  Empty: ${firstName.isEmpty}\n  Not Empty: ${firstName.isNotEmpty}");
-  print("lastName\n  Empty: ${lastName.isEmpty}\n  Not Empty: ${lastName.isNotEmpty}");
+  while (i <= 10) {
+    print(i);
+    i++;
+  }
 }
 ```
 
-Whoa! That's a bit crazy, isn't it? I snuck a new concept in there on you. We have gone over using the backslash (`\`) to *escape* special characters, such as when you want to display a dollar sign (`$`) instead of using it for interpolation, but it turns out there's another use for that concept. There are a handful of special instructions you can access in strings. In the above example, we use `\n` escape sequence to indicate we want to print a *newline*. The `print()` function automatically appends that character to the end of every string it prints, but sometimes we want them in the middle of our output, as well.
+If you've run both of the previous code examples in the DartPad editor, you've seen that they produce exactly the same output. The `while` loop, one of several types of loops supported by Dart, evaluates the boolean expression contained in the parentheses following the keyword `while`. If that expression evaluates to `true`, the code block defined between the loop's opening and closing braces is executed. You might even say that _while_ the expression remains true, the body of the loop will be run.
 
-The `isEmpty` and `isNotEmpty` properties each return a `bool` value. Normally you wouldn't print these unless you're debugging, but you will often use them in a conditional statement:
+#### Blow by Blow
+Let's think through the loop-based code example one line at a time.
+
+First, you create an integer variable called `i` and initialize it to the value `1`, because you want to count from 1 to 10.
+
+> **Why `i`?** It's been a long-standing tradition to name loop control variables `i`. In most cases, such a short, nondescript variable name would be discouraged, but typical exceptions are `i`, short for _iterator_ or possibly _index_, and `x` and `y` for representing Cartesian coordinates.
+
+At the point the computer evaluates the boolean expression controlling the `while` loop, `i` holds the value `1`. Since 1 is less than or equal to 10 (`true`), the body of the loop runs. The first statement within the loop prints `i` (1), then `i` is incremented (increased by 1) using the increment operator.
+
+> **To infinity...** It's extremely important that the value of `i` is adjusted during the running of the loop. If the value remained `1`, the loop would continue to execute its body infinitely (or at least until Dart decided it had gone on long enough and stepped in to stop it by force).
+
+With the loop's body finished, program control _loops back_ to once again evaluate the `while` loop's boolean expression.
+
+On the second iteration, `i` is `2`. Once again, the expression resolves to `true`, and the loop body is executed, printing and incrementing `i`. This continues on, looping over and over, until `i <= 10` becomes `false`. This happens when `i` makes it to 11. By then, the values 1 through 10 have been printed to the console.
+
+#### Even Shorter
+Because of a peculiarity of Dart's order of operations, it's possible to shorten this code even further without compromising the desired outcome. The name of a variable, by itself, is actually an expression. Like all expressions, it evaluates to a final value, in this case whatever value the variable contains.
 
 ```dart
-if (lastName.isEmpty) {
-  print("You don't seem to have a last name!");
-}
+int x = 1;
+x;
 ```
 
-Remember, the definition of an empty string is one with a `length` of 0. It has no characters. To wit:
-
-```dart
-" ".isEmpty;       // false (contains a space)
-"".isEmpty;        // true
-"Fun".isNotEmpty;  // true
-```
-
-Some characters, like spaces, are invisible! Tricky, but they still count. As a bonus, this code demonstrates that it's possible to access String properties even on string literals, not just on string variables.
-
-#### Examining String Content
-
-Helpfully, Strings provide a number of functions for examining their contents.
-
-##### Starting and Ending Characters
-
-You may need to find out if a string starts or ends with certain characters. The `startsWith()` and `endsWith()` string methods can assist you:
+The second line of code above evaluates to `1`. Not very useful since you don't print or use the value in any way, but it's important to understand that it's a perfectly valid expression. The increment operator (`++`) has such low precedence that even lone variable evaluation occurs first, so if `i` is 1 and you have an expression `i++`, any surrounding expression/statement making use of `i` will get to do so before the increment operation occurs.
 
 ```dart
 void main() {
-  String str = "Dart is great.";
-    
-  if (str.startsWith("D")) {
-    print('The string starts with "D"');
-  }
-    
-  if (str.endsWith("eat.")) {
-    print('The last characters of the string are "eat."');
+  int i = 1;
+  
+  while (i <= 10) {
+    print(i++);
   }
 }
 ```
 
-These two methods will return either `true` or `false`, as appropriate, which makes them great for use in `if` statements.
+The first time the loop's body runs, it prints `1`, and _then_ it increments `i` to 2. The value of `i` gets printed before its value has 1 added to it. Now, there are some who frown on this approach, arguing that it's less clear, that you need to understand an obscure rule to see what's going on. You can make up your own mind.
 
-> Keep in mind that all string comparisons and tests are case sensitive. "D" and "d" are not the same character when testing for equivalence. 
-
-##### It's All In the Index
-
-Sometimes you need to know exactly where within a string something exists. You can find out the index of a particular character sequence within a string using `indexOf()` and `lastIndexOf()`:
+#### Prefix It
+Try putting the increment operator on the other side of `i`, as a prefix instead of a postfix: `print(++1)`. How does that change your output? You get the numbers 2 through 11 printed out, because on the loop's first iteration, the value of 1 is incremented to 2 before the `print()` call happens.
 
 ```dart
 void main() {
-  String str = "Dart is great.";
-    
-  int indexOfS = str.indexOf("s");
-  int indexOfGreat = str.indexOf("great");
-  int indexOfJavaScript = str.indexOf("JavaScript");
-  int indexOfT = str.lastIndexOf("t");
+  int i = 0;
   
-  print("Index of s: $indexOfS");
-  print("Index of great: $indexOfGreat");
-  print("Index of JavaScript: $indexOfJavaScript");
-  print("Last index of t: $indexOfT");
+  while (i < 10) {
+    print(++i);
+  }
 }
 ```
 
-In most programming languages, positions and indexes are 0-based. This means that the "D" in "Dart" is at index 0, the following "a" is at index 1, and so on. If the character sequence you're searching for does not exist within the string, a value of -1 is returned, which means you could test for the presence of something like this:
+Above, you can see that to print out 1 through 10 using the prefix version of the increment operator, you need to initialize `i` to `0` and change the comparison operator from `<=` to just `<`. The variable `i` is incremented prior to printing the value with each loop iteration, so even though it enters the loop for the first time with a value of 0, it becomes 1 before getting printed. The last time `i < 10` evaluates to `true`, `i` is 9, but it gets pushed up to 10 before it's printed to the console.
 
-```dart
-if (str.indexOf("JavaScript") != -1) {
-  // found it!
-}
-```
+#### Easy to Adjust
+Now you've got this killer program that can count to 10, but your boss comes back and tells you that your users' most requested feature is counting to 50. You gasp. What? But 50 is so much more than 10. At least 5 times as much! Can one coder accomplish such a thing in a single lifetime?
 
-If the returned index is not -1, we know the pattern was found. We'll look at a nicer way of doing the same thing in the next section.
-
-The `lastIndexOf()` method returns the very last index of the search pattern that appears in the string, again returning -1 if it's not found at all.
-
-##### You Contain Me
-
-As promised, here's a somewhat more readable way to find out if a string contains a particular pattern. Behold, the `contains()` method:
+Well, without loops, it would be quite tedious. You'd stack up 50 calls to `print()`. With the loop, you can accomplish what seemed impossible by changing only a single character:
 
 ```dart
 void main() {
-  String str = "Dart is great.";
-    
-  if (str.contains("t")) {
-    print('This string definitely has a "T"');
-  }
+  int i = 1;
   
-  if (!str.contains("JavaScript")) {
-    print("No JavaScript here!");
+  while (i <= 50) {
+    print(i++);
   }
 }
 ```
 
-Notice that the second `if` statement uses the *not operator* (`!`) to test for a value of `false`, which means the second `print()` call will occur, since "JavaScript" is not part of the string. You might say it in your mind as, "If not string contains JavaScript, then declare it to the world." A little awkward, but perfectly understandable. Programming languages like Dart are designed to resemble human language to an extent.
-
-##### Return of the Index
-
-Using the *index operator* (`[ ]`), you can access individual string characters by index:
-
-```dart
-void main() {
-  String str = "Dart is great.";
-  
-  print("Index 3 (the fourth character): ${str[3]}");
-    
-  if (str[5] == "i") {
-    print('The character at index 5 is "i"');
-  }
-
-  for (int i = 0; i < str.length; i++) {
-    print(str[i]);
-  }
-}
-```
-
-You can print individual characters, test them, or even loop through them one at a time and perform some kind of operation on each. Pretty great!
-
-#### Playing Around: Reverse a String
-
-Now that you know a bit about what you can do with strings, let's use that knowledge to write a little algorithm that can reverse the characters of a string. So if the input is "I love you", the output will be "uoy evol I":
-
-```dart
-void main() {
-  print(reverseString("I love you"));
-}
-
-String reverseString(String input) {
-  String output = '';
-  
-  for (int i = input.length - 1; i >= 0; i--) {
-    output += input[i];
-  }
-  
-  return output;
-}
-```
-
-There are many ways to perform this operation, but this is one of the most succinct ways using the techniques we've learned about so far. Let's examine how `reverseString()` does its duty.
-
-The function's signature states that it takes a String variable as input and returns a String as output. Then the body sets up a variable to store the output as it works. The `output` variable is initialized to an empty string. This is required because if you were to leave it uninitialized, it would be assigned a value of `null`, which is not technically a string at all, and you cannot perform string operations on that.
-
-Next, we use a somewhat unconventional `for` loop that initializes its iterator (`i`) to the last index of the input string, which can be calculated by taking the string's length and subtracting 1. Why the subtraction? The string "I love you" has 10 characters altogether, so its last index is 9, because the first index is 0. As long as `i` is greater than or equal to 0 (the first index), the loop should continue. On each iteration of the loop, `i` is decremented using the `--` operator, so it is counting backwards from 9 to 0.
-
-The body of the loop uses the `+=` operator to concatenate each character of `input`, in reverse order, to `output`. Yes, it's true that you can use `+` or `+=` on strings, just as you can on numbers, but "addition" for strings is actually concatenation, as in this example:
-
-```dart
-String fullName = "John " + "Jones";    // result: "John Jones"
-```
-
-At the end of `reverseString()`, we `return` the value of `output` to the caller and it gets printed to the screen.
-
-#### Keep Playing!
-
-That's a lot of new tools to mess around with. Use the code editor as a playground. Be creative with your strings. Try to imagine real world situations where you might need to examine the content of a string variable. Maybe you've asked your users to provide a password of a minimum length, or one that is required to contain a particular mix of special characters for extra security. Check on those shifty users, and don't let them get away with anything!
+Unlike people, computers are great at doing things over and over very quickly. Using loops, you can harness this awesome power for world domination (or at least to count to a really high number).
