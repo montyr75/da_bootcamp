@@ -21,7 +21,7 @@ void main() {
 }
 ```
 
-Whoa! That's a bit crazy, isn't it? I snuck a new concept in there on you. We have gone over using the backslash (`\`) to *escape* special characters, such as when you want to display a dollar sign (`$`) instead of using it for interpolation, but it turns out there's another use for that concept. There are a handful of special instructions you can access in strings. In the above example, we use `\n` escape sequence to indicate we want to print a *newline*. The `print()` function automatically appends that character to the end of every string it prints, but sometimes we want them in the middle of our output, as well.
+Whoa! That's a bit crazy, isn't it? I snuck a new concept in there on you. We have gone over using the backslash (`\`) to *escape* special characters, such as when you want to display a dollar sign (`$`) instead of using it for interpolation, but it turns out there's another use for that concept. There are a handful of special instructions you can access in strings. In the above example, we use the `\n` escape sequence to indicate we want to print a *newline*. The `print()` function automatically appends that character to the end of every string it prints, but sometimes we want them in the middle of our output, as well.
 
 The `isEmpty` and `isNotEmpty` properties each return a `bool` value. Normally you wouldn't print these unless you're debugging, but you will often use them in a conditional statement:
 
@@ -163,7 +163,7 @@ String reverseString(String input) {
 
 There are many ways to perform this operation, but this is one of the most succinct ways using the techniques we've learned about so far. Let's examine how `reverseString()` does its duty.
 
-The function's signature states that it takes a String variable as input and returns a String as output. Then the body sets up a variable to store the output as it works. The `output` variable is initialized to an empty string. This is required because if you were to leave it uninitialized, it would be assigned a value of `null`, which is not technically a string at all, and you cannot perform string operations on that.
+The function's signature states that it takes a String variable as input and returns a String as output. Then the body sets up a variable to store the output as it works. The `output` variable is initialized to an empty string. This is required because a non-nullable variable must be initialized with a value before it can be used.
 
 Next, we use a somewhat unconventional `for` loop that initializes its iterator (`i`) to the last index of the input string, which can be calculated by taking the string's length and subtracting 1. Why the subtraction? The string "I love you" has 10 characters altogether, so its last index is 9, because the first index is 0. As long as `i` is greater than or equal to 0 (the first index), the loop should continue. On each iteration of the loop, `i` is decremented using the `--` operator, so it is counting backwards from 9 to 0.
 

@@ -67,3 +67,6 @@ steps:
   - name: Examining Strings
     directory: examining_stringsexamining_strings
     has_solution: false
+  - name: Modifying Strings
+    directory: modifying_strings
+    has_solution: false
