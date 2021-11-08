@@ -70,3 +70,6 @@ steps:
   - name: Modifying Strings
     directory: modifying_strings
     has_solution: false
+  - name: Lists
+    directory: lists
+    has_solution: false
