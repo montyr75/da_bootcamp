@@ -120,7 +120,7 @@ void main() {
 }
 ```
 
-Yes, lists can hold strings, boolean values, or any other valid Dart data type. In fact, in this example, you could even mix and match:
+Yes, lists can hold strings, boolean values, or any other valid Dart data type. In fact, you could even mix and match:
 
 ```dart
 void main() {
