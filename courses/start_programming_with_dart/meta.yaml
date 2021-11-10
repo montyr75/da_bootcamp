@@ -73,3 +73,6 @@ steps:
   - name: Lists
     directory: lists
     has_solution: false
+  - name: More About Lists
+    directory: more_about_lists
+    has_solution: false
