@@ -52,7 +52,7 @@ You use `String`'s `split()` method to _split_ the lowercase version of the stri
 
 Now that we have a list of letters instead of a string containing an unbroken word, we can use the `sort()` method to reorder those letters. This will place any duplicate letters next to each other, which will help us find those duplicates easily in a loop.
 
-We use the `lastLetter` variable to keep track of the last letter we examined. On the loop's first iteration, its value will still be `null`, while `letter` points to the first letter of the word. Since no letter is equal to `null`, the `if` statement will be `false`. At the end of the loop, we save the current letter as `lastLetter`, to be compared on the next iteration.
+We use the `lastLetter` variable to keep track of the last letter we examined. On the loop's first iteration, its value will still be `null`, while `letter` points to the first letter of the sorted word. Since no letter is equal to `null`, the `if` statement will be `false`. At the end of the loop, we save the current letter as `lastLetter`, to be compared on the next iteration.
 
 If `letter` is ever the same as `lastLetter`, we've found a duplicate, and the word is not an isogram. In that case, we immediately `return` from the function, ending the loop and the function early.
 

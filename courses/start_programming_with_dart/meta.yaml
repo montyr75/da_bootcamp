@@ -76,3 +76,12 @@ steps:
   - name: More About Lists
     directory: more_about_lists
     has_solution: false
+  - name: Finding Isograms
+    directory: finding_isograms
+    has_solution: false
+  - name: Constants
+    directory: constants
+    has_solution: false
+  - name: Final Variables
+    directory: final_variables
+    has_solution: false
