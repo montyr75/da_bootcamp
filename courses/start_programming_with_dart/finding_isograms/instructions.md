@@ -19,17 +19,14 @@ void main() {
 }
 
 bool isIsogram(String word) {
-  // make sure the word is all lowercase
-  word = word.toLowerCase();
-
-  // convert the string into a list of letters
-  List<String> letters = word.split('');
+  // convert the lowercase version of the string into a list of letters
+  List<String> letters = word.toLowerCase().split('');
 
   // sort the list
   letters.sort();
 
   // loop over the list, looking for duplicate letters
-  String lastLetter;
+  String? lastLetter;
   for (String letter in letters) {
     if (letter == lastLetter) {
       return false;
@@ -45,7 +42,7 @@ bool isIsogram(String word) {
 
 The `isIsogram()` function takes a string argument and pretty much assumes it's a word. It doesn't bother to check if the string contains spaces or characters other than letters. Maybe you could add code for that! The function will return `true` or `false` based on its findings.
 
-Next, you use `String`'s `split()` method to _split_ the string into a list of single characters. You do this by telling `split()` to break on an empty string, since your word strings will contain no separator characters, like a comma. If you had a string like this...
+You use `String`'s `split()` method to _split_ the lowercase version of the string into a list of single characters. You do this by telling `split()` to break on an empty string, since your word strings will contain no separator characters, like a comma. If you had a string like this...
 
 ```
 1,2,3,4,5
@@ -67,9 +64,7 @@ Because the `isIsogram()` function uses a `for...in` loop, the solution isn't op
 
 ```dart
 bool isIsogram(String word) {
-  word = word.toLowerCase();
-
-  List<String> letters = word.split('');
+  List<String> letters = word.toLowerCase().split('');
 
   letters.sort();
 
