@@ -25,7 +25,7 @@ double circumferenceFromDiameter(double diameter) => pi * diameter;
 double circumferenceFromRadius(double radius) => (2 * pi) * radius;
 ```
 
-At the top, we define a constant with the `const` keyword. This one is of type `num` (an `int` or `double` value). It's appropriately named `pi`, and it's given a value of `3.14`. Now, whenever we need to use pi in a calculation, we can do so using its name. As a bonus, if we ever wanted to increase the precision of the calculations, we could add more digits to `pi`'s value, and the rest of the code would continue to operate correctly without changes:
+At the top, we define a constant with the `const` keyword. This one is of type `double` (a number that may have a fractional component). It's appropriately named `pi`, and it's given a value of `3.14`. Now, whenever we need to use pi in a calculation, we can do so using its name. As a bonus, if we ever wanted to increase the precision of the calculations, we could add more digits to `pi`'s value, and the rest of the code would continue to operate correctly without changes:
 
 ```dart
 const double pi = 3.14159;
