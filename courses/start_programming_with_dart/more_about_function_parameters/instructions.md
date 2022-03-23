@@ -1,8 +1,10 @@
+# More About Function Parameters
+
 It can often be useful to make some function parameters optional, or to require the function's caller to refer to a parameter by name for extra clarity. In this lesson, we'll explore your options regarding function parameters in more detail.
 
 There are two types of optional parameters in Dart functions. There are *positional* optional parameters and *named* optional parameters.
 
-#### Positional Optional Parameters
+## Positional Optional Parameters
 
 Positional parameters (optional or not) are differentiated by their order in the list of parameters, like so:
 
@@ -18,7 +20,7 @@ myFunction("Bob", 54, true);
 
 Dart expects the function to get a String, an integer, and a boolean value, in that order. If your function call mixes up the order or leaves out any of them, the Dart analyzer will complain.
 
-##### Make It Optional
+### Make It Optional
 
 To make these kinds of parameters optional, you use square brackets:
 
@@ -43,7 +45,7 @@ myFunction(null, null, true);
 
 Typically, this kind of thing should be avoided, as it makes for a cryptic function call. If you regularly need to call a function in this manner, consider using named parameters instead (discussed below).
 
-##### Better Defaults
+### Better Defaults
 
 If `null` doesn't work well as a default for a positional optional parameter, you can add more sensible defaults to the function declaration:
 
@@ -53,7 +55,7 @@ void myFunction([String name = "Jim", int age = 30, bool retired = false])
 
 Now `myFunction()` will use these default values for any missing arguments. Note that this version has more descriptive parameter names, as well, which is a very good habit.
 
-##### Example
+### Example
 
 Try it!
 
@@ -72,7 +74,7 @@ void myFunction([String name = "Jim", int age = 30, bool retired = false]) {
 }
 ```
 
-##### Mixing Optional and Required Parameters
+### Mixing Optional and Required Parameters
 
 With positional parameters, it is possible for some to be optional and others required, but the optional ones must come at the end of the list:
 
@@ -82,7 +84,7 @@ void myFunction(String name, int age, [bool retired = false])
 
 In this version of the function, the caller must provide arguments for `name` and `age`, but if no value is provided for `retired`, it will default to `false`.
 
-#### Named Optional Parameters
+## Named Optional Parameters
 
 Named optional parameters allow arguments to be passed in any order. They are designated by curly braces instead of square brackets:
 
@@ -116,7 +118,7 @@ void setFlags({required bool bold, required bool hidden})
 
 This way, you can keep your parameter types non-nullable and the caller will be required to pass a valid value. You may make any number of named parameters required.
 
-##### Example
+### Example
 
 Give it a shot!
 
@@ -134,7 +136,7 @@ void setFlags({bool bold = false, bool hidden = false}) {
 }
 ```
 
-##### Mixing Optional and Required Parameters (Revisited)
+### Mixing Optional and Required Parameters (Revisited)
 
 Optional parameters, even named ones, must come at the end of the list if there are also regular, required parameters in a function's signature:
 
@@ -150,6 +152,6 @@ myFunction("Bob", 54, retired: true);
 
 Boolean parameters are great candidates for being named, as it makes the function call much clearer for anyone reading the code. Just remember that if there isn't a default value in the function's declaration and the parameter's type is nullable, it will default to `null`, which is not a valid boolean value.
 
-#### Mixing Positional and Named Optional Parameters
+## Mixing Positional and Named Optional Parameters
 
 Dart won't let you do this, so don't try it. A function can have required and optional parameters, but optional parameters must either be all named or all positional.

@@ -1,6 +1,8 @@
+# Switch
+
 The `if` statement is probably the most common control structure you'll use when programming with Dart, and it can handle most jobs, but when you need to make a decision between a large number of possibilities, `if` can become unwieldy.
 
-#### Not the Best Way
+## Not the Best Way
 Suppose you were writing a program for users playing a fantasy role-playing game. Your program suggests appropriate weapons for a character based on the fantasy race the player has elected to play.
 
 ```dart
@@ -27,7 +29,7 @@ void main() {
 
 This giant stack of `if`, `else if`, and `else` statements makes a weapon recommendation for six different character races and offers up a club in the event the player has chosen something else. The code works and works well. It does the job. But can we do better?
 
-#### A Better Way
+## A Better Way
 Introducing the `switch` statement! Yes, `switch` was designed to handle just this sort of thing, and with less typing:
 
 ```dart
@@ -65,7 +67,7 @@ In the parentheses following the `switch` keyword, you specify the variable to b
 
 The `default` case, which you'll note does not require a `break`, is optional, but acts much like an `else` statement in that it handles the case when all previous tests are `false`. If `characterRace` doesn't match any of the races specified, the `default` instructions will run.
 
-#### To Break or Not to Break?
+## To Break or Not to Break?
 There are times when you might omit the `break` instruction in a `case`. In our fictional fantasy game, maybe you want to handle the result of a die roll during a battle:
 
 ```dart
@@ -88,5 +90,7 @@ void main() {
 ```
 
 Here, if `attackRoll` is 1, Dart begins executing that case, but finds no `break`, so it _falls through_ to the next case until a `break` is encountered. A roll of 1, 2, or 3 will result in a miss, while a roll of 4, 5, or 6 will not. No `default` clause is provided this time because an attack roll in this fictional game should always fall between 1 and 6.
+
+## Play With It
 
 Try changing the value of `attackRoll` to produce different results.

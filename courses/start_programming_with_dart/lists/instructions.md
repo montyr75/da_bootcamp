@@ -1,8 +1,10 @@
+# Lists
+
 In order to efficiently solve more complex problems, we're going to need more advanced data structures. This lesson will introduce a new Dart type, the `List`. A list is exactly what it sounds like: It's a bunch of items stored sequentially. In everyday life, you make lists all the time. Lists of groceries to pick up, lists of people to call, lists of tasks to do, and so on. Sometimes your lists are numbered, which makes it easy to refer directly to any item in the list using its place in the list ("I have completed item #7!"). You could even think of Dart's `String` type as a specialized form of list, one that strictly deals with sequences of individual characters.
 
 What kinds of information might you collect into a list within a computer program? In a game app, a character's inventory might be stored as a list. For ecommerce, the contents of the shopping cart could be a list. A deck of cards could be modeled as a list, with each card being one *element* of the list. It can even be useful to convert a `String` into a `List` of characters in order to solve certain kinds of string-related problems.
 
-#### Keep It Together
+## Keep It Together
 
 A list can be of any length, and items (elements) can be added and removed as needed. This makes lists far more flexible than trying to use a collection of individual variables:
 
@@ -60,7 +62,7 @@ List<int> numbers = [5, 7, 10, 3, 19];
 
 As you can see, the loop combined with a list can add any quantity of values together. Neat! Also, keeping all the values in one variable, `numbers`, is much easier to manage than a ton of separate variables. What if you had to store 100 values or more? Can you imagine creating that many individual variables? If you see anyone do this, kick their chair out from under them and immediately demote them.
 
-#### It's Empty
+## It's Empty
 
 It's entirely possible to have a list with zero elements, an empty list:
 
@@ -105,7 +107,7 @@ if (numbers.isNotEmpty) {
 }
 ```
 
-#### Other Element Types
+## Other Element Types
 
 We've already seen that a `List` can hold a sequence of integer elements, but what about other types?
 
@@ -153,7 +155,7 @@ List<int> numbers = [5, 7, 10, 3, 19];
 
 That's better! Now your development environment can help you make sure no incompatible entities are floating around in your list of numbers. Homogeneity for the win!
 
-#### An Adding Function
+## An Adding Function
 
 We can highlight the advantages of typing your lists by separating the code to perform addition into its own reusable function:
 
@@ -178,6 +180,6 @@ int sum(List<int> values) {
 
 Using a typed list here ensures that the `sum()` function doesn't crash when it tries to add strings, numbers, and boolean values together. The parameter `values` can only be assigned a list of integers, so the code within the function can safely assume every element is an integer.
 
-#### More is More
+## More is More
 
 There's a lot more to know about lists. Read on to find out even more!

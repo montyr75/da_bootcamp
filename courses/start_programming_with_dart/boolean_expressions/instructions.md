@@ -1,6 +1,8 @@
+# Boolean Expressions
+
 In the last lesson, we took a cold, hard look at boolean variables, learning that they could contain one of two values: `true` or `false`. In the lesson before that, you wrote `if` statements comparing values in order to make a decision. Now it's time to examine these comparisons, these boolean expressions, more deeply.
 
-#### Evaluating Expressions
+## Evaluating Expressions
 
 ```dart
 void main() {
@@ -14,7 +16,7 @@ void main() {
 
 If you enter the above code and run it, of course the first `print()` call is executed, because 1 is less than 2 in all but the most extraordinary circumstances. The boolean expression in that code is `1 < 2`, because when evaluated, that expression resolves to a boolean value, either `true` or `false`. Once that evaluation has occurred, you could imagine the statement as: `if (true)`.
 
-#### Another Perspective
+## Another Perspective
 Here's another way you could represent the same situation:
 
 ```dart
@@ -24,7 +26,7 @@ bool result2 = true;
 
 Again, when the Dart interpreter encounters the boolean expression `1 < 2`, the expression is evaluated and _replaced by_ the result, which is `true`. Therefore, `result1` and `result2` have the same value.
 
-#### Boolean Operators
+## Boolean Operators
 Before we go any further, allow me to introduce Dart's boolean operators:
 
 <table>
@@ -60,7 +62,7 @@ Before we go any further, allow me to introduce Dart's boolean operators:
 
 Because Dart uses `=` as the assignment operator, it's not available for evaluating equivalency, so `==` is used instead. You learned earlier that `!` means _not_, thus `!=` is _not equal_. You're probably familiar with `>` and `<` from your school days. As with `!=`, Dart combines two operators in sequence to create `>=` and `<=`, respectively.
 
-#### Operators in Action
+## Operators in Action
 Use the code editor to examine the results of a few of these boolean expressions.
 
 ##### This `==` That
@@ -91,7 +93,7 @@ The fifth and sixth examples demonstrate that strings need to be *exactly* alike
 
 Example 7's expression demonstrates the concept we explored earlier. The expression `1 < 2` is `true`, so result1 is assigned `true`, just like `result2`. When compared, the two variables are found to be equivalent, and `result1 == result2` evaluates to `true`.
 
-#### This `!=` That
+## This `!=` That
 As the opposite of `==`, the `!=` operator is an easy one. In the example code for `==` above, replace every instance of `==` with `!=`, run it, and note the results. Should be enlightening. Every result will be the opposite of what it was before your meddling.
 
 #### `>`,  `<`, `>=`, and `<=`
@@ -109,7 +111,7 @@ void main() {
 
 The thing to notice here is that these operators cannot be used to compare non-numeric types. Attempting compare other types will result in warnings, errors, even explosions. If you're feeling adventurous, try replacing some of the values with a `String` or `bool` to familiarize yourself with the Dart analyzer's complaints.
 
-#### Enter Password
+## Enter Password
 With all your new knowledge of boolean logic, we'll take a look at a more practical example of using it:
 
 ```dart
@@ -127,7 +129,7 @@ void main() {
 
 The user has erred entering his password! Perhaps you could fix it for him before he's hauled away and tortured for his secrets.
 
-#### Have a Drink!
+## Have a Drink!
 
 ```dart
 void main() {
@@ -145,5 +147,5 @@ void main() {
 
 In most of the United States, you must be 21 years of age or older to legally imbibe an adult beverage, even though you could be sent to war at 18. Boolean logic and this code could save your restaurant business one day. You're welcome.
 
-#### Coming Up
+## Coming Up
 There's more to know? Yes, we discussed this. There is always more to know. Later, you'll see that there are other language constructs, aside from `if`, for making decisions.

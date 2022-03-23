@@ -1,6 +1,8 @@
+# Compound Assignment Operators
+
 In addition to the operators already discussed, Dart supports a number of convenience operators that combine multiple operations. Typically, they combine math and assignment operations, and using them can save you some typing.
 
-#### Add and Assign
+## Add and Assign
 
 Suppose you wanted to perform a simple addition, like so:
 
@@ -18,7 +20,7 @@ x += 5;
 
 This code uses one of the compound assignment operators, `+=`, to get the same result with less typing. The two code examples are exactly equivalent. In each case, the initial value of `x` is added to 5, and `x` ends up being `10`.
 
-##### Try It
+### Try It
 
 Try running this code in the code editor:
 
@@ -46,7 +48,7 @@ void main() {
 
 In this version, the addition occurs and the result is printed, but the sum is then thrown away. Without the `=`, `x` is not modified. It remains `5`.
 
-#### Take It Away
+## Take It Away
 
 You can also subtract as you assign:
 
@@ -57,7 +59,7 @@ x -= 5;
 
 After this code has executed, `x` will be `0`.
 
-#### Multiply
+## Multiply
 
 It's true! You can do this, too:
 
@@ -68,7 +70,7 @@ x *= 2;
 
 In this snippet, `x` is multiplied by 2, and the result is saved back to `x`, which means `x` becomes `10`.
 
-#### Be Careful with Division!
+## Be Careful with Division!
 
 The mathematicians among you may have started wondering if division, which can result in fractional quotients, could cause problems:
 
@@ -110,7 +112,7 @@ void main() {
 
 There we go! Since a variable typed as `num` can hold `int` or `double` values, this version of `x` works just as you'd expect. When you print `x`, you see that it's now the `double` value `2.5`.
 
-#### Integer Division
+## Integer Division
 
 Dart does include one more interesting math operator you've not yet seen: The integer division operator. Using it, we could approach the type problems of division another way. This operator performs a division as usual, but always returns an integer result instead of a `double`. Any fractional part is just thrown away:
 

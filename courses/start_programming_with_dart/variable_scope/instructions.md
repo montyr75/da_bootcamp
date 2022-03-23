@@ -1,6 +1,8 @@
+# Variable Scope
+
 Now that you're compartmentalizing your code into separate blocks, it's high time we discussed how it will affect the variables you create and use. Every variable you declare has a *scope*. A variable's scope defines which parts of your code can "see" it. In most situations, you can count on curly braces being the scope border, meaning that if you define a variable between opening and closing curly braces, its scope is limited to that block of code and any blocks nested within.
 
-#### Local Variables
+## Local Variables
 
 An example or two will help you visualize the concept:
 
@@ -27,7 +29,7 @@ void createName() {
 
 This time, `name` is created in the body of `createName()`. It's local to, and can only be accessed within, that function. If you try to access `name` in `main()`, or from any function except `createName()`, you'll find it's impossible. The variable has function scope.
 
-#### How Local Can You Go?
+### How Local Can You Go?
 
 Variables can be scoped even more specifically than at the function level. Take a look at this example:
 
@@ -47,7 +49,7 @@ void main() {
 
 This code doesn't make much sense, but it illustrates the point we're making. If you put that code into the code editor, you'll find you get an error in the second `if` statement. That `if` can't see `age`, because `age` was defined within the first `if` code block and is local to that block. The `adult` variable has function scope, so it can be manipulated anywhere in the function, including inside the `if` blocks.
 
-#### The Big Picture
+## The Big Picture
 
 It's also possible for variables to have a more global scope. A variable declared outside any code block is a *top-level variable*, accessible anywhere in the current file. Of course, using our interactive code editor, you only ever have a single file, so top-level variables can be accessed by all your code.
 
@@ -107,7 +109,7 @@ void printAgeCategory(bool isAdult) {
 
 Now the function parameter is called `isAdult`, but that doesn't change how the code works. Calling `printAgeCategory(adult)` still passes whatever the current value of `main()`'s local `adult` variable is, because `adult` resolves to its value before the call to `printAgeCategory()` is made. Either `true` or `false` is sent to `printAgeCategory()` and gets assigned to that function's local variable, now named `isAdult`. Note that it was not a problem to reuse the name `adult`, and in fact it happens all the time in real-world code, but we've disambiguated it here for instructional clarity.
 
-#### Always Check the Scope
+## Always Check the Scope
 
 It's very important that when you read code (yours or someone else's), whenever you see a variable being accessed, take a moment to discover that variable's scope. There may be any number of variables with the same name in one program, so you need to be sure of which one you're looking at.
 

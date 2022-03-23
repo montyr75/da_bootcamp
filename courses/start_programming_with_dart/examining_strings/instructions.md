@@ -1,3 +1,5 @@
+# Examining Strings
+
 A bunch of lessons ago, you were introduced to the `String` data type. You created, printed, concatenated, and interpolated them. What if I told you that Dart's String type contains properties and functions that help you do more advanced string operations? This shouldn't be a complete surprise, because you've already seen at least one of these hidden treasures: The `length` property. It's accessed using the dot operator (`.`), as in this example:
 
 ```dart
@@ -7,7 +9,7 @@ void main() {
 }
 ```
 
-#### Is It Empty?
+## Is It Empty?
 
 Strings can tell you other interesting things about themselves, such as whether they're empty or not:
 
@@ -41,11 +43,11 @@ Remember, the definition of an empty string is one with a `length` of 0. It has 
 
 Some characters, like spaces, are invisible! Tricky, but they still count. As a bonus, this code demonstrates that it's possible to access String properties even on string literals, not just on string variables.
 
-#### Examining String Content
+## Examining String Content
 
 Helpfully, Strings provide a number of functions for examining their contents.
 
-##### Starting and Ending Characters
+### Starting and Ending Characters
 
 You may need to find out if a string starts or ends with certain characters. The `startsWith()` and `endsWith()` string methods can assist you:
 
@@ -67,7 +69,7 @@ These two methods will return either `true` or `false`, as appropriate, which ma
 
 > Keep in mind that all string comparisons and tests are case sensitive. "D" and "d" are not the same character when testing for equivalence. 
 
-##### It's All In the Index
+### It's All In the Index
 
 Sometimes you need to know exactly where within a string something exists. You can find out the index of a particular character sequence within a string using `indexOf()` and `lastIndexOf()`:
 
@@ -99,7 +101,7 @@ If the returned index is not -1, we know the pattern was found. We'll look at a 
 
 The `lastIndexOf()` method returns the very last index of the search pattern that appears in the string, again returning -1 if it's not found at all.
 
-##### You Contain Me
+### You Contain Me
 
 As promised, here's a somewhat more readable way to find out if a string contains a particular pattern. Behold, the `contains()` method:
 
@@ -119,7 +121,7 @@ void main() {
 
 Notice that the second `if` statement uses the *not operator* (`!`) to test for a value of `false`, which means the second `print()` call will occur, since "JavaScript" is not part of the string. You might say it in your mind as, "If not string contains JavaScript, then declare it to the world." A little awkward, but perfectly understandable. Programming languages like Dart are designed to resemble human language to an extent.
 
-##### Return of the Index
+### Return of the Index
 
 Using the *index operator* (`[ ]`), you can access individual string characters by index:
 
@@ -141,7 +143,7 @@ void main() {
 
 You can print individual characters, test them, or even loop through them one at a time and perform some kind of operation on each. Pretty great!
 
-#### Playing Around: Reverse a String
+## Playing Around: Reverse a String
 
 Now that you know a bit about what you can do with strings, let's use that knowledge to write a little algorithm that can reverse the characters of a string. So if the input is "I love you", the output will be "uoy evol I":
 
@@ -175,6 +177,6 @@ String fullName = "John " + "Jones";    // result: "John Jones"
 
 At the end of `reverseString()`, we `return` the value of `output` to the caller and it gets printed to the screen.
 
-#### Keep Playing!
+## Keep Playing!
 
 That's a lot of new tools to mess around with. Use the code editor as a playground. Be creative with your strings. Try to imagine real world situations where you might need to examine the content of a string variable. Maybe you've asked your users to provide a password of a minimum length, or one that is required to contain a particular mix of special characters for extra security. Check on those shifty users, and don't let them get away with anything!

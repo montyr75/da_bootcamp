@@ -1,3 +1,5 @@
+# Finding Isograms
+
 Once again, it's time that we demonstrate a way to use what you've learned to do something interesting. In this lesson, we will create a function that can detect whether a word is an isogram. It's the day all budding programmers dream of from the time they type their first keyword, and for you, it's finally here.
 
 > **Isogram**: A word that has no repeating letters, either consecutive or nonconsecutive.
@@ -58,7 +60,7 @@ If `letter` is ever the same as `lastLetter`, we've found a duplicate, and the w
 
 If we loop through the whole word without discovering duplicate letters, the word is an isogram, so we return `true`.
 
-#### An Alternate Algorithm
+## An Alternate Algorithm
 
 Because the `isIsogram()` function uses a `for...in` loop, the solution isn't optimally elegant. We had to introduce the `lastLetter` variable to store the prior letter for comparison. Also, that type of loop always iterates over every element, which means the first iteration is always pointlessly comparing the first letter to `null`, which will never match. In this case, using a plain ol' `for` loop can be slightly more efficient:
 
@@ -80,6 +82,6 @@ bool isIsogram(String word) {
 
 Here, we start our iterator variable, `i`, at `1` instead of `0`. This way, the first comparison is between `letters[1]` and `letters[1 - 1]` (or `letters[0]`), the current letter and the prior letter in the word. The loops starts on the second letter of the word and compares it to the first, then the following iteration compares the next two, and so on, until every pair has been compared.
 
-#### Play With It!
+## Play With It!
 
 If any of the logic in this code seems confusing or hard to follow, try inserting a few `print()` calls to help you understand what's going on. Print variables before and after they're changed, print what's going on in the loop, and print `i`. If you can see the state of variables as they're examined and mutated, the process may become clearer to you.

@@ -1,8 +1,10 @@
+# Strings
+
 In previous lessons, you've used strings several times already, but you might be surprised to learn there's more to know!
 
 > **Hint:** There's always more to know.
 
-#### String Definition
+## String Definition
 Strings are how you keep track of text in your programs. You can define strings in several ways. You can use single- or double-quotes to define a `String`:
 
 ```dart
@@ -15,7 +17,7 @@ void main() {
 }
 ```
 
-#### Neighbors
+## Neighbors
 Adjacent string literals are automatically concatenated:
 
 ```dart
@@ -24,7 +26,7 @@ void main() {
 }
 ```
 
-#### Dialogue
+## Dialogue
 What if you want quotes _inside_ your strings? Won't that confuse Dart? Yes, indeed. Try this:
 
 ```dart
@@ -41,7 +43,7 @@ void main() {
 }
 ```
 
-#### Contractions
+## Contractions
 What if you had an apostrophe in there, too? An apostrophe is the same character as a single-quote!
 
 ```dart
@@ -58,7 +60,7 @@ void main() {
 }
 ```
 
-#### The Need to Escape
+## The Need to Escape
 The backslash preceding the apostrophe tells Dart that it's just an apostrophe and shouldn't be interpreted as a string delimiter. You could define the string with double-quotes, in fact, and escape those within the string instead:
 
 ```dart
@@ -71,7 +73,7 @@ Once again, there's more than one way to skin a cat.
 
 > **Note:** You should not skin cats.
 
-#### Interpolation
+## Interpolation
 The dollar sign (`$`) is another character that's special in the context of Dart strings. It's used to do _string interpolation_. Here's an example:
 
 ```dart
@@ -92,7 +94,7 @@ void main() {
 
 In Dart code, you should always favor using string interpolation when possible, as it leads to much more readable code.
 
-#### Show Me the Money
+### Show Me the Money
 But wait! Now I can't use a dollar sign in my strings?
 
 ```dart
@@ -112,7 +114,7 @@ void main() {
 
 You can escape the dollar sign with a backslash, or you can precede the string with a lowercase "r" to tell Dart the string should be considered _raw_, which means no string interpolation will be performed within it.
 
-#### Paths
+### Paths
 Now that you know the backslash is used to escape special characters, and since you're such an astute reader, you must be wondering how you can include a backslash in your string. That doesn't come up much under most circumstances, but you can't just live the rest of your life without printing backslashes, can you? In fact, you can use a backslash to escape a backslash, like so:
 
 ```dart
@@ -123,7 +125,7 @@ void main() {
 
 Run that code, and you'll see the backslash show up just like you'd expect.
 
-#### More Interpolation
+### More Interpolation
 Let's talk a bit more about string interpolation. Whenever you want to insert the value of a simple variable, like `name`, into a string, the dollar sign will get you by. If you want to do anything more complex, like a real code expression, you need to throw in a pair of curly braces:
 
 ```dart
@@ -134,7 +136,7 @@ void main() {
 
 This time, Dart will print out the math problem, then when it hits the interpolated expression, it'll perform the calculation and spit out the result, inserting it in to the string in place of the expression. Run the code to see it in action.
 
-#### Interpolated Expressions
+### Interpolated Expressions
 What other kinds of expressions are possible in there? Pretty much any valid Dart expression. Take a look at this example:
 
 ```dart
@@ -150,5 +152,5 @@ Pretty nifty, eh? You can use the index operator (`[]`), manifested by square br
 
 The second call to `print()` interpolates another new type of expression: `name.length`. String variables have _properties_ on them. These properties contain information pertinent to string variables, such as how many characters they're holding. You access these properties using the dot operator (`.`).
 
-#### Now What?
+## Now What?
 That concludes our introduction to Dart strings. Tune in next time as we continue our journey to fame and fortune via code.

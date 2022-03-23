@@ -1,6 +1,8 @@
+# Modifying Strings
+
 If you love learning about strings, you've come to the right place. This time around, we're going to discuss the ways Dart helps you to modify strings. Technically, Dart strings are *immutable*, meaning they cannot be mutated or changed in any way, but you can derive new strings based on the content of an existing string, and this can be effectively the same thing.
 
-#### Just a Trim
+## Just a Trim
 
 One of the more common issues programmers have to deal with is sanitizing user input. I'm sure it will surprise you to learn that when users are asked for information, they don't always provide it in a nice, tidy way. For instance, they may unknowingly prepend or append spaces to their answers:
 
@@ -17,7 +19,7 @@ This hapless user has (hopefully) inadvertently included a bunch of unnecessary 
 
 Also available are the `trimLeft()` and `trimRight()` methods if you only want to trim space off one end or the other.
 
-#### Pad Me
+## Pad Me
 
 If you need a string to be a minimum length, perhaps for layout purposes, you can do the opposite of trimming your string: You can pad it.
 
@@ -32,11 +34,11 @@ void main() {
 
 In this example, `padLeft()` is used to make sure the value of `name` is at least 12 characters long. If it falls short, spaces are added on the left to compensate. The second `print()` call demonstrates that you can specify a padding character other than a space. If the string is already 12 characters or longer, no padding will be added. You can use `padRight()` to pad the other side of the string.
 
-#### I'm On the Case
+## I'm On the Case
 
 Frequently, you will find yourself needing to alter the case of letters in a string.
 
-##### Comparisons
+### Comparisons
 
 When comparing strings in a case-insensitive way, the easiest thing to do is simply make both strings' cases match before comparing them:
 
@@ -66,7 +68,7 @@ The `return` statement returns `true` or `false` based on Dart's standard string
 
 No matter how you look at it, `name1` and `name2` are not equivalent, so that first comparison comes out `false`. Comparing `name2` and `name3` without case sensitivity results in a return value of `true`, since those strings are the same once they've both been converted to lowercase. In the last one, we use the named parameter `caseSensitive` to force the comparison to be case sensitive, which means the strings are considered distinct.
 
-##### Capitalization
+### Capitalization
 
 Now that you're an advanced student with a demonstrated ability to read and comprehend code documentation, I feel comfortable hitting you with two concepts at once in this section. What if you wanted to make sure a given string started with a capital letter? Many users can't be trusted to understand the rules of capitalization, even when it comes to their own names, so it falls to you to set them straight. To do this, we need to be able to convert strings to uppercase and construct new strings from parts of other strings.
 
@@ -118,7 +120,7 @@ The `capitalize()` function can be lots shorter than that, though. You could dro
 String capitalize(String s) => "${s[0].toUpperCase()}${s.substring(1)}";
 ```
 
-#### You Are Replaceable
+## You Are Replaceable
 
 It's also possible to search for and replace patterns within a string. Suppose you want to replace all instances of "Trump" with "Duck". Easy!
 

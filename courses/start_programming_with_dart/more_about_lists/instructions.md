@@ -1,6 +1,8 @@
+# More About Lists
+
 Welcome back! And now, more about lists.
 
-#### Adding and Removing Elements
+## Adding and Removing Elements
 
 Sometimes you don't have every element handy at the time you create your list. Maybe a user is giving you items one at a time, or maybe you're generating each element with code. In cases like these, you need to be able to add elements to an existing list:
 
@@ -58,7 +60,7 @@ void printList(List<String> list) {
 
 We replace the standard `print()` call with our own custom function, `printList()`. This will print any list of strings along with each element's index, represented by `i`. This will highlight the effect of Jon's expulsion. Note that we print an empty string with `print('')` just to create some vertical whitespace between the two versions of the list.
 
-#### Sort it Out
+## Sort it Out
 
 As you've seen, Dart's `List` data structure helps you keep things organized when you have a lot of data to store. It also provides a number of methods meant to help you modify the content and order of the elements. One of the most useful is the `sort()` method:
 
@@ -76,7 +78,7 @@ Yeah, Jon's back. Turns out his father was a big donor to the school, so you'll 
 
 This code prints the list both before and after a sort to illustrate the changes. The `sort()` method sorts strings alphabetically and numbers numerically. It's possible to customize the behavior of the sort, and doing so is even required for more complex element types, but we won't be covering that just yet.
 
-#### From First to Last
+## From First to Last
 
 Sometimes you need to retrieve only the first or last element in a list:
 
@@ -107,7 +109,7 @@ String last = students.last;      // Bob
 
 Now it's easy to tell at a glance what's going on here. Just as using `isEmpty` instead of manually checking a list's length is a best practice, so too is using `first` and `last` instead of guessing at indexes.
 
-#### Another Way to Loop
+## Another Way to Loop
 
 If you ever get tired of iterating over lists with integers and indexes, you can try out another form of `for` loop: the `for...in` loop. This is a more convenient loop construct in some ways, but at the cost of some flexibility. The `for...in` loop always loops through every element of a list, and it does not provide an easy way to know what index you're operating on. Pretty often, these constraints are not a problem.
 
