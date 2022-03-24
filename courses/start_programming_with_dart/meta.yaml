@@ -65,7 +65,7 @@ steps:
     directory: variable_scope
     has_solution: false
   - name: Examining Strings
-    directory: examining_stringsexamining_strings
+    directory: examining_strings
     has_solution: false
   - name: Modifying Strings
     directory: modifying_strings
