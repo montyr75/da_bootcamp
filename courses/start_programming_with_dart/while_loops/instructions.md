@@ -73,7 +73,7 @@ void main() {
 The first time the loop's body runs, it prints `1`, and _then_ it increments `i` to 2. The value of `i` gets printed before its value has 1 added to it. Now, there are some who frown on this approach, arguing that it's less clear, that you need to understand an obscure rule to see what's going on. You can make up your own mind.
 
 ### Prefix It
-Try putting the increment operator on the other side of `i`, as a prefix instead of a postfix: `print(++1)`. How does that change your output? You get the numbers 2 through 11 printed out, because on the loop's first iteration, the value of 1 is incremented to 2 before the `print()` call happens.
+Try putting the increment operator on the other side of `i`, as a prefix instead of a postfix: `print(++i)`. How does that change your output? You get the numbers 2 through 11 printed out, because on the loop's first iteration, the value of 1 is incremented to 2 before the `print()` call happens.
 
 ```dart
 void main() {
