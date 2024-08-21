@@ -34,6 +34,7 @@ flutter:
 
   assets:
     - assets/data/courses/courses.json
+    - assets/data/courses/start_programming_with_dart/course.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

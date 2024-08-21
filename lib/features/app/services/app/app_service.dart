@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../../app_config.dart';
 import '../../models/course.dart';
 import '../../models/lesson.dart';
 import 'app_state.dart';
@@ -25,12 +26,16 @@ class AppService extends _$AppService {
       courses: courses.map((value) => CourseMapper.fromMap(value)).toList(),
     );
 
-    print(courses);
+    log.info(courses);
   }
 
-  void selectCourse(Course value) {
+  Future<void> selectCourse(Course value) async {
+    String data = await rootBundle.loadString('assets/data/courses/${value.path}/course.json');
+    final lessonList = jsonDecode(data) as List;
+    final lessons = lessonList.map((value) => LessonMapper.fromMap(value)).toList();
+
     state = state.copyWith(
-      course: value,
+      course: value.copyWith(lessons: lessons),
     );
   }
 

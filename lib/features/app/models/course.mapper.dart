@@ -23,18 +23,24 @@ class CourseMapper extends ClassMapperBase<Course> {
 
   static String _$name(Course v) => v.name;
   static const Field<Course, String> _f$name = Field('name', _$name);
-  static List<Lesson> _$lessons(Course v) => v.lessons;
+  static String _$path(Course v) => v.path;
+  static const Field<Course, String> _f$path = Field('path', _$path);
+  static List<Lesson>? _$lessons(Course v) => v.lessons;
   static const Field<Course, List<Lesson>> _f$lessons =
       Field('lessons', _$lessons);
 
   @override
   final MappableFields<Course> fields = const {
     #name: _f$name,
+    #path: _f$path,
     #lessons: _f$lessons,
   };
 
   static Course _instantiate(DecodingData data) {
-    return Course(name: data.dec(_f$name), lessons: data.dec(_f$lessons));
+    return Course(
+        name: data.dec(_f$name),
+        path: data.dec(_f$path),
+        lessons: data.dec(_f$lessons));
   }
 
   @override
@@ -83,8 +89,8 @@ extension CourseValueCopy<$R, $Out> on ObjectCopyWith<$R, Course, $Out> {
 
 abstract class CourseCopyWith<$R, $In extends Course, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  ListCopyWith<$R, Lesson, LessonCopyWith<$R, Lesson, Lesson>> get lessons;
-  $R call({String? name, List<Lesson>? lessons});
+  ListCopyWith<$R, Lesson, LessonCopyWith<$R, Lesson, Lesson>>? get lessons;
+  $R call({String? name, String? path, List<Lesson>? lessons});
   CourseCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -95,15 +101,22 @@ class _CourseCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Course, $Out>
   @override
   late final ClassMapperBase<Course> $mapper = CourseMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, Lesson, LessonCopyWith<$R, Lesson, Lesson>> get lessons =>
-      ListCopyWith($value.lessons, (v, t) => v.copyWith.$chain(t),
-          (v) => call(lessons: v));
+  ListCopyWith<$R, Lesson, LessonCopyWith<$R, Lesson, Lesson>>? get lessons =>
+      $value.lessons != null
+          ? ListCopyWith($value.lessons!, (v, t) => v.copyWith.$chain(t),
+              (v) => call(lessons: v))
+          : null;
   @override
-  $R call({String? name, List<Lesson>? lessons}) => $apply(FieldCopyWithData(
-      {if (name != null) #name: name, if (lessons != null) #lessons: lessons}));
+  $R call({String? name, String? path, Object? lessons = $none}) =>
+      $apply(FieldCopyWithData({
+        if (name != null) #name: name,
+        if (path != null) #path: path,
+        if (lessons != $none) #lessons: lessons
+      }));
   @override
   Course $make(CopyWithData data) => Course(
       name: data.get(#name, or: $value.name),
+      path: data.get(#path, or: $value.path),
       lessons: data.get(#lessons, or: $value.lessons));
 
   @override
