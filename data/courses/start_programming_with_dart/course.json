@@ -1,0 +1,13 @@
+{
+  "name": "Start Programming with Dart",
+  "lessons": [
+    {
+      "name": "Hello, World!",
+      "path": "hello_world"
+    },
+    {
+      "name": "Variables",
+      "path": "variables"
+    },
+  ]
+}
