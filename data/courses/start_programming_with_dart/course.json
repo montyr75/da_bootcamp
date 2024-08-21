@@ -9,5 +9,109 @@
       "name": "Variables",
       "path": "variables"
     },
+    {
+      "name": "Types",
+      "path": "types"
+    },
+    {
+      "name": "Operators",
+      "path": "operators"
+    },
+    {
+      "name": "Compound Assignment Operators",
+      "path": "compound_assignment_operators"
+    },
+    {
+      "name": "Strings",
+      "path": "strings"
+    },
+    {
+      "name": "Converting Temperatures",
+      "path": "temperature"
+    },
+    {
+      "name": "Making Decisions",
+      "path": "making_decisions"
+    },
+    {
+      "name": "Booleans",
+      "path": "booleans"
+    },
+    {
+      "name": "Boolean Expressions",
+      "path": "boolean_expressions"
+    },
+    {
+      "name": "Modulo Operator",
+      "path": "modulo_operator"
+    },
+    {
+      "name": "Switch",
+      "path": "switch"
+    },
+    {
+      "name": "Switching Grades",
+      "path": "switching_grades"
+    },
+    {
+      "name": "While Loops",
+      "path": "while_loops"
+    },
+    {
+      "name": "Do-While Loops",
+      "path": "do_while_loops"
+    },
+    {
+      "name": "For Loops",
+      "path": "for_loops"
+    },
+    {
+      "name": "Functions",
+      "path": "functions"
+    },
+    {
+      "name": "Function Parameters",
+      "path": "function_parameters"
+    },
+    {
+      "name": "More About Function Parameters",
+      "path": "more_about_function_parameters"
+    },
+    {
+      "name": "Function Return Values",
+      "path": "function_return_values"
+    },
+    {
+      "name": "Variable Scope",
+      "path": "variable_scope"
+    },
+    {
+      "name": "Examining Strings",
+      "path": "examining_strings"
+    },
+    {
+      "name": "Modifying Strings",
+      "path": "modifying_strings"
+    },
+    {
+      "name": "Lists",
+      "path": "lists"
+    },
+    {
+      "name": "More About Lists",
+      "path": "more_about_lists"
+    },
+    {
+      "name": "Finding Isograms",
+      "path": "finding_isograms"
+    },
+    {
+      "name": "Constants",
+      "path": "constants"
+    },
+    {
+      "name": "Final Variables",
+      "path": "final_variables"
+    }
   ]
 }
