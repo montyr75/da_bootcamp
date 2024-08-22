@@ -22,17 +22,25 @@ class LessonMapper extends ClassMapperBase<Lesson> {
 
   static String _$name(Lesson v) => v.name;
   static const Field<Lesson, String> _f$name = Field('name', _$name);
-  static String _$path(Lesson v) => v.path;
-  static const Field<Lesson, String> _f$path = Field('path', _$path);
+  static String _$filename(Lesson v) => v.filename;
+  static const Field<Lesson, String> _f$filename =
+      Field('filename', _$filename);
+  static String? _$content(Lesson v) => v.content;
+  static const Field<Lesson, String> _f$content =
+      Field('content', _$content, opt: true);
 
   @override
   final MappableFields<Lesson> fields = const {
     #name: _f$name,
-    #path: _f$path,
+    #filename: _f$filename,
+    #content: _f$content,
   };
 
   static Lesson _instantiate(DecodingData data) {
-    return Lesson(name: data.dec(_f$name), path: data.dec(_f$path));
+    return Lesson(
+        name: data.dec(_f$name),
+        filename: data.dec(_f$filename),
+        content: data.dec(_f$content));
   }
 
   @override
@@ -81,7 +89,7 @@ extension LessonValueCopy<$R, $Out> on ObjectCopyWith<$R, Lesson, $Out> {
 
 abstract class LessonCopyWith<$R, $In extends Lesson, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  $R call({String? name, String? path});
+  $R call({String? name, String? filename, String? content});
   LessonCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -92,12 +100,17 @@ class _LessonCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Lesson, $Out>
   @override
   late final ClassMapperBase<Lesson> $mapper = LessonMapper.ensureInitialized();
   @override
-  $R call({String? name, String? path}) => $apply(FieldCopyWithData(
-      {if (name != null) #name: name, if (path != null) #path: path}));
+  $R call({String? name, String? filename, Object? content = $none}) =>
+      $apply(FieldCopyWithData({
+        if (name != null) #name: name,
+        if (filename != null) #filename: filename,
+        if (content != $none) #content: content
+      }));
   @override
   Lesson $make(CopyWithData data) => Lesson(
       name: data.get(#name, or: $value.name),
-      path: data.get(#path, or: $value.path));
+      filename: data.get(#filename, or: $value.filename),
+      content: data.get(#content, or: $value.content));
 
   @override
   LessonCopyWith<$R2, Lesson, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t) =>

@@ -78,7 +78,7 @@ The dollar sign (`$`) is another character that's special in the context of Dart
 
 ```dart
 void main() {
-  String name = "Amber";
+  String name = "Robert";
   print("$name is my best friend.");
 }
 ```
@@ -87,7 +87,7 @@ When Dart encounters a `$` in the string, it expects what follows to be a variab
 
 ```dart
 void main() {
-  String name = "Amber";
+  String name = "Robert";
   print(name + " is my best friend.");
 }
 ```

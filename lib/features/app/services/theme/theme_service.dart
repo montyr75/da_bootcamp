@@ -23,7 +23,7 @@ class ThemeService extends _$ThemeService {
   ThemeState build() {
     return ThemeState(
       light: FlexThemeData.light(scheme: colorScheme),
-      dark: _modTheme(FlexThemeData.dark(
+      dark: FlexThemeData.dark(
         scheme: colorScheme,
         surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
         blendLevel: 13,
@@ -36,7 +36,7 @@ class ThemeService extends _$ThemeService {
         swapLegacyOnMaterial3: true,
         // To use the Playground font, add GoogleFonts package and uncomment
         // fontFamily: GoogleFonts.notoSans().fontFamily,
-      )),
+      ),
     );
   }
 

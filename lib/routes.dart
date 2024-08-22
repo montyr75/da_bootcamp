@@ -4,11 +4,13 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'features/app/presentation/home_page.dart';
 import 'features/app/presentation/not_found_page.dart';
+import 'features/course/presentation/course_page.dart';
 
 part 'routes.g.dart';
 
 enum AppRoute {
-  home('/');
+  home('/'),
+  course;
 
   final String? _path;
 
@@ -28,7 +30,12 @@ GoRouter goRouter(GoRouterRef ref) {
         name: AppRoute.home.name,
         path: AppRoute.home.path,
         builder: (context, state) => const HomePage(),
-        routes: const [
+        routes: [
+          GoRoute(
+            name: AppRoute.course.name,
+            path: AppRoute.course.path,
+            builder: (context, state) => const CoursePage(),
+          ),
         ],
       ),
     ],

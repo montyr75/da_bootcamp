@@ -19,29 +19,33 @@ class AppService extends _$AppService {
   }
 
   Future<void> _loadCourses() async {
-    String data = await rootBundle.loadString('assets/data/courses/courses.json');
+    final data = await rootBundle.loadString('assets/data/courses/courses.json');
     final courses = jsonDecode(data) as List;
 
     state = state.copyWith(
       courses: courses.map((value) => CourseMapper.fromMap(value)).toList(),
     );
-
-    log.info(courses);
   }
 
   Future<void> selectCourse(Course value) async {
-    String data = await rootBundle.loadString('assets/data/courses/${value.path}/course.json');
+    final data = await rootBundle.loadString('assets/data/courses/${value.path}/lessons.json');
     final lessonList = jsonDecode(data) as List;
     final lessons = lessonList.map((value) => LessonMapper.fromMap(value)).toList();
 
     state = state.copyWith(
       course: value.copyWith(lessons: lessons),
     );
+
+    log.info(state.course);
   }
 
-  void selectLesson(Lesson value) {
+  Future<void> selectLesson(Lesson value) async {
+    final data = await rootBundle.loadString('assets/data/courses/${state.course?.path}/${value.filename}');
+
     state = state.copyWith(
-      lesson: value,
+      lesson: value.copyWith(
+        content: data,
+      ),
     );
   }
 }

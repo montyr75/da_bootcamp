@@ -5,10 +5,12 @@ part 'lesson.mapper.dart';
 @MappableClass()
 class Lesson with LessonMappable {
   final String name;
-  final String path;
+  final String filename;
+  final String? content;
 
   const Lesson({
     required this.name,
-    required this.path,
+    required this.filename,
+    this.content,
   });
 }

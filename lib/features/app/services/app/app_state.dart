@@ -24,4 +24,8 @@ class AppState {
       lesson: lesson ?? this.lesson,
     );
   }
+
+  bool get hasCourses => courses != null && courses!.isNotEmpty;
+  bool get hasLessons => course != null && course!.lessons != null && course!.lessons!.isNotEmpty;
+  bool get hasContent => lesson != null && lesson!.content != null && lesson!.content!.isNotEmpty;
 }
